@@ -21,11 +21,13 @@ window.onload = function(){
   d3.select(window).on("resize", throttle);
 
   var zoom = d3.behavior.zoom()
-      .scaleExtent([1, 9])
+      .scaleExtent([1, 20])
       .on("zoom", move);
 
   var width = document.getElementById('container').offsetWidth;
-  var height = width / 2;
+  var height = document.getElementById('container').offsetHeight;
+  console.log(width + "w");
+  console.log(height + "h");
   var topo,projection,path,svg,g;
   var graticule = d3.geo.graticule();
   var tooltip = d3.select("#container").append("div").attr("class", "tooltip hidden");
